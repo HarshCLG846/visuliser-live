@@ -110,13 +110,13 @@ def resolve_frontend_selection(user_selections: Dict[str, Any]) -> Dict[str, int
 # ENDPOINTS
 # -----------------------------------------------------------------------------
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 def home():
-    # Serve React Frontend
-    index_path = os.path.join(STATIC_DIR, "index.html")
+    index_path = os.path.join("static", "index.html")
     if os.path.exists(index_path):
         return FileResponse(index_path)
     return {"status": "Backend running, but frontend not built. Run render-build.sh"}
+
 
 @app.get("/health")
 def health():
