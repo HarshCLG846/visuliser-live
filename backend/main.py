@@ -33,8 +33,10 @@ app.add_middleware(
 # -----------------------------------------------------------------------------
 # Mount the static directory (built frontend) to /static
 # We explicitly check if directory exists to avoid crashes during development if not built yet
-if os.path.isdir("static"):
-    app.mount("/assets", StaticFiles(directory="static/assets"), name="assets")
+STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
+
+if os.path.isdir(STATIC_DIR):
+    app.mount("/assets", StaticFiles(directory=os.path.join(STATIC_DIR, "assets")), name="assets")
 
 # Serve index.html for root path and any other path (SPA routing)
 # We will define this at the END of the file to avoid conflicts.
@@ -111,7 +113,7 @@ def resolve_frontend_selection(user_selections: Dict[str, Any]) -> Dict[str, int
 @app.get("/")
 def home():
     # Serve React Frontend
-    index_path = os.path.join("static", "index.html")
+    index_path = os.path.join(STATIC_DIR, "index.html")
     if os.path.exists(index_path):
         return FileResponse(index_path)
     return {"status": "Backend running, but frontend not built. Run render-build.sh"}
@@ -211,12 +213,12 @@ async def edit_image_api(
 async def catch_all(full_path: str):
     # This matches any path not matched by specific API routes above.
     # Try to find a static file first (in case it wasn't in /assets)
-    potential_file_path = os.path.join("static", full_path)
+    potential_file_path = os.path.join(STATIC_DIR, full_path)
     if os.path.isfile(potential_file_path):
         return FileResponse(potential_file_path)
         
     # Otherwise return index.html for client-side routing
-    index_path = os.path.join("static", "index.html")
+    index_path = os.path.join(STATIC_DIR, "index.html")
     if os.path.exists(index_path):
         return FileResponse(index_path)
     
