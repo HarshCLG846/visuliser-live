@@ -10,7 +10,7 @@ import uuid
 from typing import Dict, Any
 
 # Import existing backend logic
-from architectural_visualizer import (
+from backend.architectural_visualizer import (
     PRODUCT_CATALOG,
     validate_selection,
     build_backend_products_json,
