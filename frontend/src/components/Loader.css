@@ -1,0 +1,96 @@
+/* Full screen overlay with blur */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Deep Black Overlay */
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  /* Highest priority */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.loader-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  background: rgba(20, 20, 20, 0.8);
+  /* Optional card bg */
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(245, 230, 168, 0.2);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* House Animation Container */
+.loader-icon-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* SVG Styles */
+.loader-house-svg {
+  filter: drop-shadow(0 0 8px rgba(245, 230, 168, 0.4));
+}
+
+.house-path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: drawHouse 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+
+.loader-text {
+  color: white;
+}
+
+.house-path-detail {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawHouse 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate 0.5s;
+  /* Delay */
+}
+
+@keyframes drawHouse {
+  0% {
+    stroke-dashoffset: 300;
+    fill: transparent;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+
+  70% {
+    fill: rgba(245, 230, 168, 0.1);
+    /* Subtle gold fill */
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    fill: rgba(245, 230, 168, 0.15);
+  }
+}
+
+/* Removed old spinner */
+.loader-spinner {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

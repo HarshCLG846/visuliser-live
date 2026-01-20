@@ -1,0 +1,223 @@
+.visualizer-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #ffffff;
+  /* Pure White Background */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Sub Items Panel (Floating/Overlay or dedicated column) */
+.sub-items-panel {
+  width: 300px;
+  /* Fixed positioning to sit next to the floating sidebar */
+  position: absolute;
+  left: 260px;
+  /* Adjusted: 20px margin + 220px sidebar + 20px gap */
+  top: 50%;
+  transform: translateY(-50%);
+  height: auto;
+  max-height: calc(100vh - 60px);
+
+  background: white;
+  border-radius: 20px;
+  /* Consistent Radius */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  /* Premium Shadow */
+  z-index: 90;
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Smoother Slide */
+}
+
+/* Custom Scrollbar for Product Panel */
+.sub-items-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sub-items-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sub-items-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: 1px solid white;
+  /* Offset from content */
+}
+
+.sub-items-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.sub-items-header {
+  padding: 24px;
+  border-bottom: 1px solid #f0f0f0;
+  background: white;
+}
+
+.sub-items-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.selected-items-indicator {
+  font-size: 0.85rem;
+  color: #ffffff;
+  /* White Text */
+  font-weight: 600;
+  background: #1a1a1a;
+  /* Black Background */
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  /* Dark Border */
+  white-space: nowrap;
+}
+
+.sub-items-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  background: #fbfbfb;
+}
+
+/* Grid Layout for Products */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* 2x2 Grid Format */
+  /* 2 columns */
+  gap: 12px;
+}
+
+/* Product Card Styling */
+.product-card {
+  background: white;
+  border: 1px solid #E6E6E6;
+  /* Light grey border */
+  border-radius: 14px;
+  /* Requested radius */
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  /* Very soft shadow */
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  border-color: #F5E6A8;
+  /* Gold border on hover */
+}
+
+.product-card.selected {
+  border: 2px solid #F5E6A8;
+  /* Gold border */
+  box-shadow: 0 0 15px rgba(245, 230, 168, 0.4);
+  /* Subtle gold glow */
+}
+
+/* Image Section within Card - 4:3 Aspect Ratio */
+.product-image-container {
+  width: 100%;
+  aspect-ratio: 4/3;
+  /* Enforce 4:3 standard */
+  height: auto;
+  /* Allow height to adjust */
+  background: #f8f8f8;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-thumb {
+  transform: scale(1.05);
+  /* Zoom effect */
+}
+
+/* Placeholder look when no image */
+.product-placeholder {
+  font-size: 3rem;
+  opacity: 0.3;
+}
+
+/* Card Content */
+.product-info {
+  padding: 12px 14px;
+  /* Breathing room */
+}
+
+.product-name {
+  margin: 0;
+  font-size: 0.9rem;
+  /* Clean readable font */
+  font-weight: 600;
+  color: #333;
+  line-height: 1.3;
+}
+
+.product-meta {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: #888;
+}
+
+/* Selected Badge - Gold Check Icon */
+.selected-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background: #F5E6A8;
+  /* Brand Gold */
+  color: #1A1A1A;
+  /* Black Check */
+  border-radius: 50%;
+  /* Circle */
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

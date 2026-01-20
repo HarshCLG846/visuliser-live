@@ -1,0 +1,186 @@
+/* Floating Sidebar - Reference Style */
+.left-category-sidebar {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  /* Center vertically */
+  transform: translateY(-50%);
+  /* Center alignment */
+  width: 220px;
+  background: #ffffff;
+  border-radius: 20px;
+  /* Enhanced Radius */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Enhanced Premium Shadow */
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  /* Slightly more breathing room */
+  z-index: 100;
+  height: auto;
+  max-height: calc(100vh - 60px);
+}
+
+/* Custom Scrollbar for Sidebar */
+.sidebar-content::-webkit-scrollbar {
+  width: 4px;
+  /* Slim scrollbar */
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Header (Optional - kept minimal or hidden based on "remove extra things") */
+.sidebar-header {
+  padding: 12px 16px;
+  border-bottom: none;
+  /* Removed separator */
+  background: transparent;
+  margin-bottom: 8px;
+}
+
+.sidebar-header h3 {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.sidebar-header::after {
+  display: none;
+  /* Remove underline decoration */
+}
+
+/* Category List */
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* Tighter gap */
+}
+
+/* Items */
+.category-item {
+  width: 100%;
+  padding: 12px 16px;
+  background: #1a1a1a;
+  /* Dark/Black Background */
+  color: #ffffff;
+  /* White Text */
+  border: 1px solid #333;
+  /* Dark Border */
+  border-radius: 12px;
+  /* Smooth rounded */
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  letter-spacing: 0.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.category-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.category-icon {
+  font-size: 16px;
+  color: #F5E6A8;
+  /* Gold Icon */
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+/* Hover State - Lighter Black */
+.category-item:hover {
+  background: #2a2a2a;
+  /* Slightly lighter black */
+  border-color: #F5E6A8;
+  /* Gold Border */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.category-item:hover .category-icon {
+  color: #FFF;
+  opacity: 1;
+}
+
+/* Active/Selected State - White Background, Black Text */
+.category-item.active {
+  background: #ffffff;
+  /* White */
+  color: #000000;
+  /* Black Text */
+  border: 1px solid #F5E6A8;
+  /* Gold Border */
+  border-left: 4px solid #B8860B;
+  /* Solid Gold Left Accent */
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transform: none;
+  border-radius: 4px 12px 12px 4px;
+}
+
+.category-text-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.category-subtitle {
+  font-size: 11px;
+  color: #aaaaaa;
+  /* Light Grey for dark bg */
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+.category-item.active .category-subtitle {
+  color: #666;
+  /* Darker grey for white bg */
+}
+
+.category-item.active .category-icon {
+  color: #B8860B;
+  /* Dark Gold Icon for white bg */
+  opacity: 1;
+}
+
+.category-item.active:hover {
+  background: #f9f9f9;
+  /* Keep it light */
+  border-color: #B8860B;
+}
+
+/* Dropdown Arrow updates */
+.dropdown-arrow {
+  color: #999;
+  font-size: 10px;
+}
+
+.category-item.active .dropdown-arrow {
+  color: #F5E6A8;
+  /* Gold Arrow */
+}

@@ -1,0 +1,194 @@
+/* Floating Sidebar - Right Side */
+.right-action-sidebar {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  /* Center vertically */
+  transform: translateY(-50%);
+  /* Center alignment */
+  width: 220px;
+  /* Slightly Increased Width */
+  background: #ffffff;
+  border-radius: 20px;
+  /* Enhanced Radius */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Enhanced Premium Shadow */
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  z-index: 100;
+  height: auto;
+  max-height: calc(100vh - 60px);
+}
+
+/* Custom Scrollbar for Action Sidebar */
+.action-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.action-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.action-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.action-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.action-header {
+  padding: 12px 16px;
+  border-bottom: none;
+  background: transparent;
+  margin-bottom: 8px;
+}
+
+.action-header h3 {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.action-header::after {
+  display: none;
+}
+
+.action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Unified clean button style matching the reference list items */
+.action-button {
+  width: 100%;
+  padding: 12px 16px;
+  background: #1a1a1a;
+  /* Dark/Black Background */
+  color: #ffffff;
+  /* White Text */
+  border: 1px solid #333;
+  /* Dark Border */
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Base hover state for all buttons to match Left Sidebar Active */
+.action-button:hover {
+  background: #ffffff;
+  /* White */
+  color: #000000;
+  /* Black Text */
+  border-color: #F5E6A8;
+  /* Gold Border */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:hover .action-icon {
+  color: #B8860B;
+  /* Dark Gold Icon */
+  opacity: 1;
+}
+
+/* Secondary Button (Default) - Reset/etc */
+/* .secondary-button inherits base .action-button styles */
+
+.secondary-button .action-icon {
+  color: #F5E6A8;
+  /* Gold Icon */
+}
+
+/* Upload Button - Same style, maybe slightly bolder if needed, but keeping uniform as requested */
+/* .upload-button inherits base */
+
+.upload-button .action-icon {
+  color: #F5E6A8;
+}
+
+/* Primary Button (View/Original) - Can optionally be distinct, but user asked for uniform black items */
+/* .primary-button inherits base black style */
+
+.primary-button .action-icon {
+  color: #F5E6A8;
+}
+
+.primary-button:not(:disabled):hover {
+  /* Same active white style */
+  background: #ffffff;
+  border-color: #D4AF37;
+  color: #000000;
+}
+
+.primary-button:disabled {
+  background: #e0e0e0;
+  border-color: #d1d1d1;
+  color: #999;
+  box-shadow: none;
+}
+
+/* Disabled State adjustments */
+.action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+  filter: grayscale(100%);
+}
+
+.action-button::before {
+  display: none;
+}
+
+.action-icon {
+  font-size: 16px;
+  color: #F5E6A8;
+  /* Gold Icon Default */
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.action-button:hover .action-icon {
+  color: #1a1a1a;
+}
+
+/* Specific button modifications to fit the "clean list" style */
+/* We remove the heavy black/green backgrounds to match the white card aesthetic */
+/* Unless the user explicitly needs them to standout, but request said "like the photo" which is uniform */
+
+/* Remove overrides that might conflict */
+.upload-button {
+  color: #ffffff;
+}
+
+.download-button {
+  color: #ffffff;
+}
+
+/* Optional: Make primary actions slightly different or bold text, but keep white background */
+.upload-button .action-label,
+.download-button .action-label {
+  font-weight: 600;
+}
+
+/* Active state simulation if buttons are toggles */
+.action-button:active {
+  background: #e0e0e0;
+}

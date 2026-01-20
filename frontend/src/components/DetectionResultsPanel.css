@@ -1,0 +1,104 @@
+/* Luxury Detection Panel */
+.detection-results-panel {
+  position: fixed;
+  right: 240px;
+  bottom: 40px;
+  width: 280px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  /* Premium Shadow */
+  z-index: 100;
+  animation: slideUp 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid #E6E6E6;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.results-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #F1F1F1;
+  background: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.results-header h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.results-content {
+  padding: 16px 20px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Scrollbar polish */
+.results-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.results-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.results-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #F8F8F8;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-status {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-status.detected {
+  color: #1A1A1A;
+  /* Black Text */
+}
+
+.result-status.not-detected {
+  color: #999;
+}
+
+.result-confidence {
+  font-size: 12px;
+  color: #B8860B;
+  /* Dark Gold Text */
+  font-weight: 600;
+  background: transparent;
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid #F5E6A8;
+  /* Gold Border */
+}
