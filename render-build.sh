@@ -8,8 +8,7 @@ echo "Build started..."
 echo "Building Frontend..."
 cd frontend
 npm install
-chmod +x frontend/node_modules/.bin/vite
-
+npm audit fix --force   # optional
 npm run build
 cd ..
 
